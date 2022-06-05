@@ -1,0 +1,1 @@
+{"type":"Scene","props":{"width":1334,"runtime":"progress/ProgressScene.ts","height":750},"compId":2,"child":[{"type":"ProgressBar","props":{"y":334,"x":657,"var":"progressNode","value":0,"skin":"comp/progress/progressBar.png"},"compId":3}],"loadList":["comp/progress/progressBar.png"],"loadList3D":[]}

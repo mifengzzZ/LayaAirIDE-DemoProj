@@ -6,4 +6,9 @@
    <item name="comboBox.scene" props="" ifExport="分离模式" aName="下拉选项框"/>
    <item name="labelTxt.scene" props="" ifExport="分离模式" aName="文本"/>
    <item name="list.scene" props="" ifExport="分离模式" aName="列表"/>
+   <item name="HSlider.scene" props="" ifExport="分离模式" aName="横向滑动"/>
+   <item name="VSlider.scene" props="" ifExport="分离模式" aName="纵向滑动"/>
+   <item name="progress.scene" props="" ifExport="分离模式" aName="进度条"/>
+   <item name="RadioGroup.scene" props="" ifExport="分离模式" aName="单选按钮组"/>
+   <item name="tab.scene" props="" ifExport="分离模式" aName="选项卡组"/>
 </page>

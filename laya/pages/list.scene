@@ -2,138 +2,19 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":14,
+    "selecteID":18,
     "searchKey":"Scene",
     "props":{"width":1334,"sceneColor":"#000000","height":750},
     "nodeParent":-1,
     "maxID":24,
     "label":"Scene",
     "isOpen":true,
-    "isDirectory":true,
+    "isDirectory":false,
     "isAniNode":true,
-    "hasChild":true,
+    "hasChild":false,
     "compId":2,
     "child":[
-        {
-            "x":15,
-            "type":"RadioGroup",
-            "searchKey":"RadioGroup",
-            "props":{"y":187,"x":737,"selectedIndex":0,"direction":"horizontal"},
-            "nodeParent":2,
-            "label":"RadioGroup",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":18,
-            "child":[
-                {
-                    "type":"Radio",
-                    "searchKey":"Radio,item0",
-                    "props":{"y":24,"x":0,"skin":"comp/other/radio.png","name":"item0","label":"0"},
-                    "nodeParent":18,
-                    "label":"item0",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":15,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Radio",
-                    "searchKey":"Radio,item1",
-                    "props":{"y":24,"x":198,"skin":"comp/other/radio.png","name":"item1","label":"1"},
-                    "nodeParent":18,
-                    "label":"item1",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":16,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Radio",
-                    "searchKey":"Radio,item2",
-                    "props":{"y":24,"x":395,"skin":"comp/other/radio.png","name":"item2","label":"2"},
-                    "nodeParent":18,
-                    "label":"item2",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":17,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Tab",
-            "searchKey":"Tab",
-            "props":{"y":140,"x":301,"selectedIndex":0,"direction":"horizontal"},
-            "nodeParent":2,
-            "label":"Tab",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":22,
-            "child":[
-                {
-                    "type":"Button",
-                    "searchKey":"Button,item0",
-                    "props":{"y":0,"x":48,"skin":"comp/other/btn_close.png","name":"item0"},
-                    "nodeParent":22,
-                    "label":"item0",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":19,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Button",
-                    "searchKey":"Button,item1",
-                    "props":{"y":-4,"x":123,"skin":"comp/other/button.png","name":"item1"},
-                    "nodeParent":22,
-                    "label":"item1",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":20,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Button",
-                    "searchKey":"Button,item2",
-                    "props":{"y":3.5,"x":291,"skin":"comp/other/btn_close.png","name":"item2"},
-                    "nodeParent":22,
-                    "label":"item2",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":21,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Tab",
-            "searchKey":"Tab",
-            "props":{"y":560,"x":250,"skin":"comp/other/tab.png","selectedIndex":0,"labels":"label1,label2,label3","direction":"horizontal"},
-            "nodeParent":2,
-            "label":"Tab",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":23,
-            "child":[
-                ]
-        }],
+        ],
     "animations":[
         {
             "nodes":[

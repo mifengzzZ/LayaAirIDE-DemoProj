@@ -23,6 +23,9 @@ P 0BF8258B combobox.png
 D comp/font
 R 612B2F64 SourceHanSansCN_Medium.ttf
 R 4150B5C0 SourceHanSerifCN_Heavy_4.ttf
+D comp/hslider
+P 1F14286B hslider$bar.png
+P C2BE12DA hslider.png
 D comp/list
 D comp/other
 P 316AD948 btn_close.png
@@ -55,6 +58,22 @@ P A3D7A036 textarea.png
 P A3D7A036 textinput.png
 P 5FD17798 vscroll.png
 P 01BAE7F5 vslider.png
+D comp/progress
+P CFA3C26F progressBar$bar.png
+P C2BE12DA progressBar.png
+D comp/radioGroup
+P B45D1151 radio_0.png
+P 8216BC2C radio_1.png
+P D68594F1 radio_2.png
+P 3C493DD4 radiogroup.png
+D comp/tab
+P 038756B1 btn_4.png
+P A4546E17 btn_5.png
+P ACD6867F btn_6.png
+P D1F76D59 tab1.png
+D comp/vslider
+P 455C87B1 vslider$bar.png
+P D19D5C8A vslider.png
 D comp/xlzdh
 D comp/xlzdh/role
 P 8D50E078 attack1_0.png

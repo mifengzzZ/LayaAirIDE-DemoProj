@@ -39,6 +39,15 @@ export module ui {
         }
     }
     REG("ui.comboBoxUI",comboBoxUI);
+    export class HSliderUI extends Scene {
+		public hsliderNode:Laya.HSlider;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("HSlider");
+        }
+    }
+    REG("ui.HSliderUI",HSliderUI);
     export class labelTxtUI extends Scene {
         constructor(){ super()}
         createChildren():void {
@@ -55,6 +64,44 @@ export module ui {
         }
     }
     REG("ui.listUI",listUI);
+    export class progressUI extends Scene {
+		public progressNode:Laya.ProgressBar;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("progress");
+        }
+    }
+    REG("ui.progressUI",progressUI);
+    export class RadioGroupUI extends Scene {
+		public radioGroupNode:Laya.RadioGroup;
+		public cutomRadioGroup:Laya.RadioGroup;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("RadioGroup");
+        }
+    }
+    REG("ui.RadioGroupUI",RadioGroupUI);
+    export class tabUI extends Scene {
+		public tabNode:Laya.Tab;
+		public cutomTab:Laya.Tab;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("tab");
+        }
+    }
+    REG("ui.tabUI",tabUI);
+    export class VSliderUI extends Scene {
+		public vsliderNode:Laya.VSlider;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("VSlider");
+        }
+    }
+    REG("ui.VSliderUI",VSliderUI);
     export class xlzdhUI extends Scene {
         constructor(){ super()}
         createChildren():void {

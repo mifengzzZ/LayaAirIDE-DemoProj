@@ -90,6 +90,15 @@
         }
         ui.comboBoxUI = comboBoxUI;
         REG("ui.comboBoxUI", comboBoxUI);
+        class HSliderUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("HSlider");
+            }
+        }
+        ui.HSliderUI = HSliderUI;
+        REG("ui.HSliderUI", HSliderUI);
         class labelTxtUI extends Scene {
             constructor() { super(); }
             createChildren() {
@@ -108,6 +117,42 @@
         }
         ui.listUI = listUI;
         REG("ui.listUI", listUI);
+        class progressUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("progress");
+            }
+        }
+        ui.progressUI = progressUI;
+        REG("ui.progressUI", progressUI);
+        class RadioGroupUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("RadioGroup");
+            }
+        }
+        ui.RadioGroupUI = RadioGroupUI;
+        REG("ui.RadioGroupUI", RadioGroupUI);
+        class tabUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("tab");
+            }
+        }
+        ui.tabUI = tabUI;
+        REG("ui.tabUI", tabUI);
+        class VSliderUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("VSlider");
+            }
+        }
+        ui.VSliderUI = VSliderUI;
+        REG("ui.VSliderUI", VSliderUI);
         class xlzdhUI extends Scene {
             constructor() { super(); }
             createChildren() {
@@ -154,6 +199,18 @@
             console.log(cb.selectedIndex);
         }
         onEnable() {
+        }
+        onDisable() {
+        }
+    }
+
+    class HSliderScene extends ui.HSliderUI {
+        constructor() { super(); }
+        onEnable() {
+            this.hsliderNode.changeHandler = Laya.Handler.create(this, this.onSliderChange, null, false);
+        }
+        onSliderChange(value) {
+            console.log('onSliderChange : ', value);
         }
         onDisable() {
         }
@@ -223,6 +280,69 @@
         }
     }
 
+    class ProgressScene extends ui.progressUI {
+        constructor() { super(); }
+        onEnable() {
+            this.progressNode.changeHandler = Laya.Handler.create(this, this.onProgress, null, false);
+            Laya.timer.loop(100, this, this.changeValue);
+        }
+        changeValue() {
+            if (this.progressNode.value >= 1) {
+                this.progressNode.value = 0;
+            }
+            this.progressNode.value += 0.01;
+        }
+        onProgress(value) {
+            console.log("进度：" + Math.floor(value * 100) + "%");
+        }
+        onDisable() {
+        }
+    }
+
+    class RadioGroupScene extends ui.RadioGroupUI {
+        constructor() { super(); }
+        onEnable() {
+            this.radioGroupNode.selectHandler = Laya.Handler.create(this, this.onSelectChange, null, false);
+            this.cutomRadioGroup.selectHandler = Laya.Handler.create(this, this.onCutomSelectChange, null, false);
+        }
+        onSelectChange(index) {
+            console.log("你选择了第 " + (index + 1) + " 项");
+        }
+        onCutomSelectChange(index) {
+            console.log("onCutomSelectChange 你选择了第 " + (index + 1) + " 项");
+        }
+        onDisable() {
+        }
+    }
+
+    class TabScene extends ui.tabUI {
+        constructor() { super(); }
+        onEnable() {
+            this.tabNode.selectHandler = Laya.Handler.create(this, this.onSelect, null, false);
+            this.cutomTab.selectHandler = Laya.Handler.create(this, this.onSelect2, null, false);
+        }
+        onSelect(index) {
+            console.log("当前选择的标签页索引为 " + index);
+        }
+        onSelect2(index) {
+            console.log("onSelect2 当前选择的标签页索引为 " + index);
+        }
+        onDisable() {
+        }
+    }
+
+    class VSliderScene extends ui.VSliderUI {
+        constructor() { super(); }
+        onEnable() {
+            this.vsliderNode.changeHandler = Laya.Handler.create(this, this.onSliderChange, null, false);
+        }
+        onSliderChange(value) {
+            console.log('onSliderChange : ', value);
+        }
+        onDisable() {
+        }
+    }
+
     class XuliezhendonghuaScene extends Laya.Script {
         constructor() {
             super();
@@ -261,8 +381,13 @@
             reg("checkBox/CheckBoxScene.ts", CheckBox);
             reg("clip/ClipScene.ts", ClipScene);
             reg("comboBox/ComboBoxScene.ts", ComboBoxScene);
+            reg("hslider/HSliderScene.ts", HSliderScene);
             reg("component/TTFHeavy.ts", TTFHeavy);
             reg("component/TTFMedium.ts", TTFMedium);
+            reg("progress/ProgressScene.ts", ProgressScene);
+            reg("radioGroup/RadioGroupScene.ts", RadioGroupScene);
+            reg("tab/TabScene.ts", TabScene);
+            reg("vslider/VSliderScene.ts", VSliderScene);
             reg("xlzdh/XuliezhendonghuaScene.ts", XuliezhendonghuaScene);
         }
     }
@@ -272,7 +397,7 @@
     GameConfig.screenMode = "horizontal";
     GameConfig.alignV = "middle";
     GameConfig.alignH = "center";
-    GameConfig.startScene = "list.scene";
+    GameConfig.startScene = "tab.scene";
     GameConfig.sceneRoot = "";
     GameConfig.debug = false;
     GameConfig.stat = true;
