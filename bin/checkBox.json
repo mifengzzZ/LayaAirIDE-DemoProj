@@ -1,0 +1,1 @@
+{"type":"Scene","props":{"width":1334,"height":750},"compId":2,"child":[{"type":"Script","props":{"runtime":"checkBox/CheckBoxScene.ts"},"compId":3},{"type":"CheckBox","props":{"y":418,"x":845,"toggle":true,"stateNum":3,"skin":"comp/checkBox/checkbox_1.png","selected":true,"label":"label"},"compId":7}],"loadList":["comp/checkBox/checkbox_1.png"],"loadList3D":[]}

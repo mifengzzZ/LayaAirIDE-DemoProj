@@ -1,3 +1,9 @@
 <page>
    <item name="xlzdh.scene" props="" ifExport="默认" aName="序列帧动画"/>
+   <item name="button.scene" props="" ifExport="默认" aName="按钮"/>
+   <item name="checkBox.scene" props="" ifExport="默认" aName="多选框"/>
+   <item name="clip.scene" props="" ifExport="默认" aName="切片"/>
+   <item name="comboBox.scene" props="" ifExport="分离模式" aName="下拉选项框"/>
+   <item name="labelTxt.scene" props="" ifExport="分离模式" aName="文本"/>
+   <item name="list.scene" props="" ifExport="分离模式" aName="列表"/>
 </page>

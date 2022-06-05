@@ -3,3 +3,64 @@ import View=Laya.View;
 import Dialog=Laya.Dialog;
 import Scene=Laya.Scene;
 var REG: Function = Laya.ClassUtils.regClass;
+export module ui {
+    export class buttonUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("button");
+        }
+    }
+    REG("ui.buttonUI",buttonUI);
+    export class checkBoxUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("checkBox");
+        }
+    }
+    REG("ui.checkBoxUI",checkBoxUI);
+    export class clipUI extends Scene {
+		public start:Laya.Button;
+		public numClip:Laya.Clip;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("clip");
+        }
+    }
+    REG("ui.clipUI",clipUI);
+    export class comboBoxUI extends Scene {
+		public comboBoxNode:Laya.ComboBox;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("comboBox");
+        }
+    }
+    REG("ui.comboBoxUI",comboBoxUI);
+    export class labelTxtUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("labelTxt");
+        }
+    }
+    REG("ui.labelTxtUI",labelTxtUI);
+    export class listUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("list");
+        }
+    }
+    REG("ui.listUI",listUI);
+    export class xlzdhUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("xlzdh");
+        }
+    }
+    REG("ui.xlzdhUI",xlzdhUI);
+}

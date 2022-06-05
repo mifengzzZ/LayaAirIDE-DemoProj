@@ -1,0 +1,1 @@
+{"type":"Scene","props":{"width":1334,"runtime":"comboBox/ComboBoxScene.ts","height":750},"compId":2,"child":[{"type":"ComboBox","props":{"y":338,"x":526.5,"var":"comboBoxNode","skin":"comp/comboBox/combobox.png","selectedLabel":"123","labels":"今天号码,今天不好","labelSize":20,"labelFont":"SourceHanSansCN_Medium"},"compId":3}],"loadList":["comp/comboBox/combobox.png"],"loadList3D":[]}

@@ -1,4 +1,8 @@
 <res>
-   <item name="comp/other.png" type="Sprite" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
-   <item name="comp" type="" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/button/btn_guanbi.png" type="Button" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/checkBox" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/other/image.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/clip/num0-9.png" type="Clip" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/clip/button-7.png" type="Button" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/comboBox/combobox.png" type="ComboBox" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
 </res>
