@@ -57,6 +57,10 @@ export module ui {
     }
     REG("ui.labelTxtUI",labelTxtUI);
     export class listUI extends Scene {
+		public list:Laya.List;
+		public item:Laya.Label;
+		public btn:Laya.Button;
+		public refresh:Laya.Button;
         constructor(){ super()}
         createChildren():void {
             super.createChildren();

@@ -6,6 +6,7 @@ import ComboBoxScene from "./comboBox/ComboBoxScene"
 import HSliderScene from "./hslider/HSliderScene"
 import TTFHeavy from "./component/TTFHeavy"
 import TTFMedium from "./component/TTFMedium"
+import ListScene from "./list/ListScene"
 import ProgressScene from "./progress/ProgressScene"
 import RadioGroupScene from "./radioGroup/RadioGroupScene"
 import TabScene from "./tab/TabScene"
@@ -21,7 +22,7 @@ export default class GameConfig{
     static screenMode:string="horizontal";
     static alignV:string="middle";
     static alignH:string="center";
-    static startScene:any="tab.scene";
+    static startScene:any="list.scene";
     static sceneRoot:string="";
     static debug:boolean=false;
     static stat:boolean=true;
@@ -37,6 +38,7 @@ export default class GameConfig{
         reg("hslider/HSliderScene.ts",HSliderScene);
         reg("component/TTFHeavy.ts",TTFHeavy);
         reg("component/TTFMedium.ts",TTFMedium);
+        reg("list/ListScene.ts",ListScene);
         reg("progress/ProgressScene.ts",ProgressScene);
         reg("radioGroup/RadioGroupScene.ts",RadioGroupScene);
         reg("tab/TabScene.ts",TabScene);

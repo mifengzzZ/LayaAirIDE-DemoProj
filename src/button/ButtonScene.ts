@@ -15,6 +15,11 @@ export default class ButtonScene extends Laya.Script {
         btn.height = 32;
         btn.pos(100, 100);
         btn.label = '关闭';
+        btn.clickHandler = Laya.Handler.create(this, this.onClick, null, false);
+    }
+
+    onClick() {
+        
     }
 
     onEnable(): void {

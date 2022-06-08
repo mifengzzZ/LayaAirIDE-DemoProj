@@ -14,6 +14,9 @@
             btn.height = 32;
             btn.pos(100, 100);
             btn.label = '关闭';
+            btn.clickHandler = Laya.Handler.create(this, this.onClick, null, false);
+        }
+        onClick() {
         }
         onEnable() {
         }
@@ -280,6 +283,50 @@
         }
     }
 
+    class ListScene extends ui.listUI {
+        constructor() {
+            super();
+            this._data = [];
+        }
+        onEnable() {
+            for (let index = 0; index < 100; index++) {
+                this._data.push(index);
+            }
+            this.list.renderHandler = Laya.Handler.create(this, this.onRender, null, false);
+            this.list.mouseHandler = Laya.Handler.create(this, this.onMouse, null, false);
+            this.list.selectHandler = Laya.Handler.create(this, this.onSelect, null, false);
+            this.list.vScrollBarSkin = "";
+            this.list.dataSource = this._data;
+            this.list.scrollBar.touchScrollEnable = false;
+            this.btn.clickHandler = Laya.Handler.create(this, this.onClick, null, false);
+            this.refresh.clickHandler = Laya.Handler.create(this, this.onFresh, null, false);
+        }
+        onDisable() {
+        }
+        onRender(cell, index) {
+            cell.text = "" + this._data[index];
+            console.log('onRender : ', cell.text);
+        }
+        onClick() {
+            let cellData = this.list.getItem(0);
+            console.log('cellData : ', cellData);
+        }
+        onFresh() {
+            this._data = [];
+            for (let index = 200; index < 300; index++) {
+                this._data.push(index);
+            }
+            this.list.refresh();
+        }
+        onMouse(e, index) {
+            console.log(e);
+            console.log('onMouse index : ', index);
+        }
+        onSelect(index) {
+            console.log('onSelect index : ', index);
+        }
+    }
+
     class ProgressScene extends ui.progressUI {
         constructor() { super(); }
         onEnable() {
@@ -384,6 +431,7 @@
             reg("hslider/HSliderScene.ts", HSliderScene);
             reg("component/TTFHeavy.ts", TTFHeavy);
             reg("component/TTFMedium.ts", TTFMedium);
+            reg("list/ListScene.ts", ListScene);
             reg("progress/ProgressScene.ts", ProgressScene);
             reg("radioGroup/RadioGroupScene.ts", RadioGroupScene);
             reg("tab/TabScene.ts", TabScene);
@@ -397,7 +445,7 @@
     GameConfig.screenMode = "horizontal";
     GameConfig.alignV = "middle";
     GameConfig.alignH = "center";
-    GameConfig.startScene = "tab.scene";
+    GameConfig.startScene = "list.scene";
     GameConfig.sceneRoot = "";
     GameConfig.debug = false;
     GameConfig.stat = true;
