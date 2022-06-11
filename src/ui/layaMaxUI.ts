@@ -4,6 +4,28 @@ import Dialog=Laya.Dialog;
 import Scene=Laya.Scene;
 var REG: Function = Laya.ClassUtils.regClass;
 export module ui {
+    export class AllStringUI extends Scene {
+		public label:Laya.Label;
+		public textinput:Laya.TextInput;
+		public htmlStr:Laya.HTMLDivElement;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("AllString");
+        }
+    }
+    REG("ui.AllStringUI",AllStringUI);
+    export class AnimUI extends Scene {
+		public move:Laya.FrameAnimation;
+		public roleAnim:Laya.Animation;
+		public ui:Laya.Sprite;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("Anim");
+        }
+    }
+    REG("ui.AnimUI",AnimUI);
     export class buttonUI extends Scene {
         constructor(){ super()}
         createChildren():void {
@@ -87,6 +109,14 @@ export module ui {
         }
     }
     REG("ui.RadioGroupUI",RadioGroupUI);
+    export class spineUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("spine");
+        }
+    }
+    REG("ui.spineUI",spineUI);
     export class tabUI extends Scene {
 		public tabNode:Laya.Tab;
 		public cutomTab:Laya.Tab;
@@ -97,6 +127,22 @@ export module ui {
         }
     }
     REG("ui.tabUI",tabUI);
+    export class tweenUI extends Scene {
+		public l1:Laya.Text;
+		public a0:Laya.Text;
+		public y1:Laya.Text;
+		public a1:Laya.Text;
+		public b1:Laya.Text;
+		public o1:Laya.Text;
+		public x1:Laya.Text;
+		public startAction:Laya.Button;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("tween");
+        }
+    }
+    REG("ui.tweenUI",tweenUI);
     export class VSliderUI extends Scene {
 		public vsliderNode:Laya.VSlider;
         constructor(){ super()}

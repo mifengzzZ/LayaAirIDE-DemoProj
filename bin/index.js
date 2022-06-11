@@ -9,6 +9,10 @@ window.screenOrientation = "sensor_landscape";
 
 //-----libs-begin-----
 loadLib("libs/laya.core.js")
+loadLib("libs/spine-core-3.8.js")
+loadLib("libs/laya.spine.js")
+loadLib("libs/laya.ani.js")
+loadLib("libs/laya.html.js")
 loadLib("libs/laya.ui.js")
 loadLib("libs/laya.physics.js")
 //-----libs-end-------

@@ -11,4 +11,8 @@
    <item name="progress.scene" props="" ifExport="分离模式" aName="进度条"/>
    <item name="RadioGroup.scene" props="" ifExport="分离模式" aName="单选按钮组"/>
    <item name="tab.scene" props="" ifExport="分离模式" aName="选项卡组"/>
+   <item name="AllString.scene" props="" ifExport="分离模式" aName="所有文本组件"/>
+   <item name="tween.scene" props="" ifExport="分离模式" aName="缓动动画"/>
+   <item name="Anim.scene" props="" ifExport="分离模式" aName="时间轴动画"/>
+   <item name="spine.scene" props="" ifExport="分离模式" aName="骨骼动画"/>
 </page>

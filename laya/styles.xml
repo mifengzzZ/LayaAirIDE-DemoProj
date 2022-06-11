@@ -6,4 +6,5 @@
    <item name="comp/clip/button-7.png" type="Button" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
    <item name="comp/comboBox/combobox.png" type="ComboBox" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
    <item name="comp/tab/tab1.png" type="Tab" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/animTimeline/monkey.png" type="Sprite" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
 </res>

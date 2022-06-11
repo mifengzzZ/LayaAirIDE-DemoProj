@@ -9,6 +9,12 @@ P 2DCE1DF9 vscroll$bar.png
 P 6FE7EA34 vscroll$down.png
 P 0587871F vscroll$up.png
 P DDDDFB9E vslider$bar.png
+D comp/animTimeline
+P 40CFAF5A monkey.png
+P 7105AB31 monkey0.png
+P B919DA90 monkey1.png
+P 40CFAF5A monkey2.png
+P 030540DA monkey3.png
 D comp/button
 P 316AD948 btn_guanbi.png
 D comp/checkBox

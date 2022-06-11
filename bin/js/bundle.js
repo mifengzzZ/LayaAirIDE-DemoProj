@@ -1,62 +1,28 @@
 (function () {
     'use strict';
 
-    class ButtonScene extends Laya.Script {
-        constructor() {
-            super();
-            this._skin = 'res/atlas/comp/button.png';
-            Laya.loader.load(this._skin, Laya.Handler.create(this, this.onLoaded));
-        }
-        onLoaded() {
-            let btn = new Laya.Button(this._skin);
-            Laya.stage.addChild(btn);
-            btn.width = 32;
-            btn.height = 32;
-            btn.pos(100, 100);
-            btn.label = '关闭';
-            btn.clickHandler = Laya.Handler.create(this, this.onClick, null, false);
-        }
-        onClick() {
-        }
-        onEnable() {
-        }
-        onDisable() {
-        }
-    }
-
-    class CheckBox extends Laya.Script {
-        constructor() {
-            super();
-            this.skin = 'res/atlas/comp/checkBox.alats';
-            this.skin1 = 'checkbox_1.png';
-            this.skin2 = 'checkbox_2.png';
-            Laya.loader.load([{ url: this.skin, type: Laya.Loader.ATLAS }], Laya.Handler.create(this, this.onLoaded));
-        }
-        onLoaded() {
-            let cb1 = new Laya.CheckBox();
-            cb1.skin = this.skin1;
-            Laya.stage.addChild(cb1);
-            cb1.pos(200, 200);
-            cb1.label = '我是多选框1';
-            cb1.labelSize = 24;
-            cb1.selected = true;
-            let cb2 = new Laya.CheckBox();
-            cb2.skin = this.skin2;
-            Laya.stage.addChild(cb2);
-            cb2.pos(200, 500);
-            cb2.label = '我是多选框2';
-            cb2.labelSize = 24;
-        }
-        onEnable() {
-        }
-        onDisable() {
-        }
-    }
-
     var Scene = Laya.Scene;
     var REG = Laya.ClassUtils.regClass;
     var ui;
     (function (ui) {
+        class AllStringUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("AllString");
+            }
+        }
+        ui.AllStringUI = AllStringUI;
+        REG("ui.AllStringUI", AllStringUI);
+        class AnimUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("Anim");
+            }
+        }
+        ui.AnimUI = AnimUI;
+        REG("ui.AnimUI", AnimUI);
         class buttonUI extends Scene {
             constructor() { super(); }
             createChildren() {
@@ -138,6 +104,15 @@
         }
         ui.RadioGroupUI = RadioGroupUI;
         REG("ui.RadioGroupUI", RadioGroupUI);
+        class spineUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("spine");
+            }
+        }
+        ui.spineUI = spineUI;
+        REG("ui.spineUI", spineUI);
         class tabUI extends Scene {
             constructor() { super(); }
             createChildren() {
@@ -147,6 +122,15 @@
         }
         ui.tabUI = tabUI;
         REG("ui.tabUI", tabUI);
+        class tweenUI extends Scene {
+            constructor() { super(); }
+            createChildren() {
+                super.createChildren();
+                this.loadScene("tween");
+            }
+        }
+        ui.tweenUI = tweenUI;
+        REG("ui.tweenUI", tweenUI);
         class VSliderUI extends Scene {
             constructor() { super(); }
             createChildren() {
@@ -166,6 +150,118 @@
         ui.xlzdhUI = xlzdhUI;
         REG("ui.xlzdhUI", xlzdhUI);
     })(ui || (ui = {}));
+
+    class AllStringScene extends ui.AllStringUI {
+        constructor() { super(); }
+        onEnable() {
+            this.textinput.focus = false;
+        }
+        onDisable() {
+        }
+    }
+
+    class TTFHeavy extends Laya.Script {
+        constructor() { super(); }
+        onAwake() {
+            Laya.loader.load('comp/font/SourceHanSerifCN_Heavy_4.ttf', Laya.Handler.create(this, (res) => {
+                console.log('TTFHeavy res : ', res);
+                if (this.owner instanceof Laya.Label) {
+                    var a = this.owner;
+                    a.font = res.fontName;
+                    console.log('Label text : ', a.text);
+                    a.text = a.text;
+                }
+                else if (this.owner instanceof Laya.Text) {
+                    var a1 = this.owner;
+                    a1.font = res.fontName;
+                    console.log('Text text : ', a1.text);
+                    a1.text = a1.text;
+                }
+                else if (this.owner instanceof Laya.HTMLDivElement) {
+                    var a2 = this.owner;
+                    a2.style.family = res.fontName;
+                    a2.style.font = res.fontName;
+                }
+                else if (this.owner instanceof Laya.Radio || this.owner instanceof Laya.Button) {
+                    this.owner["labelFont"] = res.fontName;
+                }
+                else {
+                    this.owner["labelFont"] = res.fontName;
+                }
+            }), null, Laya.Loader.TTF, 0, true);
+        }
+    }
+
+    class AnimationTimeline extends ui.AnimUI {
+        constructor() {
+            super();
+        }
+        onEnable() {
+            Laya.loader.load("res/atlas/comp/animTimeline.atlas", Laya.Handler.create(this, this.onLoaded));
+        }
+        onLoaded() {
+            let tl = new Laya.Animation();
+            tl.loadAnimation("animTimeline/Timeline.ani");
+            Laya.stage.addChild(tl);
+            tl.play(0, false, 'move');
+            this.roleAnim.play(0, true, 'xuliezhen');
+            this.move.play();
+        }
+        onDisable() {
+        }
+    }
+
+    class ButtonScene extends Laya.Script {
+        constructor() {
+            super();
+            this._skin = 'res/atlas/comp/button.png';
+            Laya.loader.load(this._skin, Laya.Handler.create(this, this.onLoaded));
+        }
+        onLoaded() {
+            let btn = new Laya.Button(this._skin);
+            Laya.stage.addChild(btn);
+            btn.width = 32;
+            btn.height = 32;
+            btn.pos(100, 100);
+            btn.label = '关闭';
+            btn.clickHandler = Laya.Handler.create(this, this.onClick, null, false);
+        }
+        onClick() {
+        }
+        onEnable() {
+        }
+        onDisable() {
+        }
+    }
+
+    class CheckBox extends Laya.Script {
+        constructor() {
+            super();
+            this.skin = 'res/atlas/comp/checkBox.alats';
+            this.skin1 = 'checkbox_1.png';
+            this.skin2 = 'checkbox_2.png';
+            Laya.loader.load([{ url: this.skin, type: Laya.Loader.ATLAS }], Laya.Handler.create(this, this.onLoaded));
+        }
+        onLoaded() {
+            let cb1 = new Laya.CheckBox();
+            cb1.skin = this.skin1;
+            Laya.stage.addChild(cb1);
+            cb1.pos(200, 200);
+            cb1.label = '我是多选框1';
+            cb1.labelSize = 24;
+            cb1.selected = true;
+            let cb2 = new Laya.CheckBox();
+            cb2.skin = this.skin2;
+            Laya.stage.addChild(cb2);
+            cb2.pos(200, 500);
+            cb2.label = '我是多选框2';
+            cb2.labelSize = 24;
+        }
+        onEnable() {
+        }
+        onDisable() {
+        }
+    }
 
     class ClipScene extends ui.clipUI {
         constructor() {
@@ -216,38 +312,6 @@
             console.log('onSliderChange : ', value);
         }
         onDisable() {
-        }
-    }
-
-    class TTFHeavy extends Laya.Script {
-        constructor() { super(); }
-        onAwake() {
-            Laya.loader.load('comp/font/SourceHanSerifCN_Heavy_4.ttf', Laya.Handler.create(this, (res) => {
-                console.log('TTFHeavy res : ', res);
-                if (this.owner instanceof Laya.Label) {
-                    var a = this.owner;
-                    a.font = res.fontName;
-                    console.log('Label text : ', a.text);
-                    a.text = a.text;
-                }
-                else if (this.owner instanceof Laya.Text) {
-                    var a1 = this.owner;
-                    a1.font = res.fontName;
-                    console.log('Text text : ', a1.text);
-                    a1.text = a1.text;
-                }
-                else if (this.owner instanceof Laya.HTMLDivElement) {
-                    var a2 = this.owner;
-                    a2.style.family = res.fontName;
-                    a2.style.font = res.fontName;
-                }
-                else if (this.owner instanceof Laya.Radio || this.owner instanceof Laya.Button) {
-                    this.owner["labelFont"] = res.fontName;
-                }
-                else {
-                    this.owner["labelFont"] = res.fontName;
-                }
-            }), null, Laya.Loader.TTF, 0, true);
         }
     }
 
@@ -308,15 +372,13 @@
             console.log('onRender : ', cell.text);
         }
         onClick() {
-            let cellData = this.list.getItem(0);
-            console.log('cellData : ', cellData);
+            this.list.selectedIndex = 2;
         }
         onFresh() {
             this._data = [];
             for (let index = 200; index < 300; index++) {
                 this._data.push(index);
             }
-            this.list.refresh();
         }
         onMouse(e, index) {
             console.log(e);
@@ -362,6 +424,101 @@
         }
     }
 
+    class SpineScene extends ui.spineUI {
+        constructor() {
+            super();
+            this.templet = null;
+            this.spineSkeleton = null;
+            this.index = -1;
+        }
+        onEnable() {
+            this.skillEvent();
+        }
+        onLoaded() {
+            var skeleton = new Laya.Skeleton();
+            Laya.stage.addChild(skeleton);
+            skeleton.pos(Laya.Browser.width / 2, Laya.Browser.height / 2 - 200);
+            skeleton.load("res/spine/1_Black.sk");
+        }
+        shipeiSpine() {
+            this.templet = new Laya.SpineTemplet(Laya.SpineVersion.v3_8);
+            this.templet.loadAni("res/spine/shipeibanben/205008.skel");
+            this.templet.on(Laya.Event.COMPLETE, this, this.parseComplete);
+            this.templet.on(Laya.Event.ERROR, this, this.onError);
+        }
+        parseComplete() {
+            console.log('解析完成');
+            this.spineSkeleton = this.templet.buildArmature();
+            Laya.stage.addChild(this.spineSkeleton);
+            this.spineSkeleton.pos(Laya.Browser.width / 2, Laya.Browser.height / 2 + 100);
+            this.spineSkeleton.scale(0.5, 0.5);
+            this.spineSkeleton.on(Laya.Event.STOPPED, this, this.play);
+            console.log('this.spineSkeleton : ', this.spineSkeleton);
+            this.play();
+        }
+        onError() {
+            console.log("Parse error");
+        }
+        play() {
+            console.log("1111111111");
+            if (++this.index >= this.spineSkeleton.getAnimNum()) {
+                this.index = 0;
+            }
+            this.spineSkeleton.play(this.index, false, true);
+        }
+        skillEvent() {
+            this.templet = new Laya.SpineTemplet(Laya.SpineVersion.v3_8);
+            this.templet.on(Laya.Event.COMPLETE, this, this.parseCompleteSkill);
+            this.templet.on(Laya.Event.ERROR, this, this.onError);
+            this.templet.loadAni("res/spine/shipeibanben/205012.skel");
+        }
+        parseCompleteSkill() {
+            this.spineSkeleton = this.templet.buildArmature();
+            Laya.stage.addChild(this.spineSkeleton);
+            this.spineSkeleton.pos(Laya.Browser.width / 2, Laya.Browser.height / 2);
+            this.spineSkeleton.on(Laya.Event.LABEL, this, this.onEvent);
+            this.spineSkeleton.on(Laya.Event.STOPPED, this, this.onKillEnd);
+            console.log('this.skeleton : ', this.spineSkeleton);
+            console.log('this.spineSkeleton.getSkeleton()[data] : ', this.spineSkeleton.getSkeleton()["data"]);
+            console.log('this.spineSkeleton.getSkeleton().data; : ', this.spineSkeleton.getSkeleton().data);
+            let animationEndTime = 0;
+            var _event = [];
+            let _animations = this.spineSkeleton.getSkeleton()["data"].animations;
+            for (var i = 0; i < _animations.length; i++) {
+                if (_animations[i].name == "skill2") {
+                    console.log('this.spineSkeleton.getSkeleton().data; : ', _animations[i].duration);
+                    animationEndTime = _animations[i].duration;
+                    var _len = _animations[i].timelines.length;
+                    console.log('_len : ', _len);
+                    var _eventTime = _animations[i].timelines[_len - 1];
+                    if (_eventTime) {
+                        if (_eventTime.events) {
+                            for (var j = 0; j < _eventTime.events.length; j++) {
+                                _event.push({ time: _eventTime.events[j].time, name: _eventTime.events[j].data.name });
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            console.log('_event : ', _event);
+            this.spineSkeleton.play("skill2", false);
+            Laya.timer.once(animationEndTime * 1000, this, this.onPlayEnd);
+        }
+        onEvent(e) {
+            var tEventData = e;
+            console.log("tEventData.name : ", tEventData.name);
+        }
+        onKillEnd() {
+            console.log('播放完成');
+        }
+        onPlayEnd() {
+            console.log('播放完成2');
+        }
+        onDisable() {
+        }
+    }
+
     class TabScene extends ui.tabUI {
         constructor() { super(); }
         onEnable() {
@@ -373,6 +530,30 @@
         }
         onSelect2(index) {
             console.log("onSelect2 当前选择的标签页索引为 " + index);
+        }
+        onDisable() {
+        }
+    }
+
+    class TweenScene extends ui.tweenUI {
+        constructor() {
+            super();
+            this._textArr = [this.l1, this.a0, this.y1, this.a1, this.b1, this.o1, this.x1];
+            this.startAction.clickHandler = Laya.Handler.create(this, this.onStart, null, false);
+        }
+        onEnable() {
+        }
+        onStart() {
+            for (let index = 0; index < this._textArr.length; index++) {
+                const text = this._textArr[index];
+                Laya.Tween.to(text, { y: 100, update: Laya.Handler.create(this, this.onUpdateTextAction, [text], false) }, 3000, Laya.Ease.elasticOut, Laya.Handler.create(this, this.onRunActionComplete, [text], false), index * 1000);
+            }
+        }
+        onUpdateTextAction(txt) {
+            console.log('onUpdateTextAction : ', txt);
+        }
+        onRunActionComplete(txt) {
+            console.log('txt : ', txt);
         }
         onDisable() {
         }
@@ -424,17 +605,21 @@
         constructor() { }
         static init() {
             var reg = Laya.ClassUtils.regClass;
+            reg("allString/AllStringScene.ts", AllStringScene);
+            reg("component/TTFHeavy.ts", TTFHeavy);
+            reg("animTimeline/AnimationTimeline.ts", AnimationTimeline);
             reg("button/ButtonScene.ts", ButtonScene);
             reg("checkBox/CheckBoxScene.ts", CheckBox);
             reg("clip/ClipScene.ts", ClipScene);
             reg("comboBox/ComboBoxScene.ts", ComboBoxScene);
             reg("hslider/HSliderScene.ts", HSliderScene);
-            reg("component/TTFHeavy.ts", TTFHeavy);
             reg("component/TTFMedium.ts", TTFMedium);
             reg("list/ListScene.ts", ListScene);
             reg("progress/ProgressScene.ts", ProgressScene);
             reg("radioGroup/RadioGroupScene.ts", RadioGroupScene);
+            reg("spine/SpineScene.ts", SpineScene);
             reg("tab/TabScene.ts", TabScene);
+            reg("tween/TweenScene.ts", TweenScene);
             reg("vslider/VSliderScene.ts", VSliderScene);
             reg("xlzdh/XuliezhendonghuaScene.ts", XuliezhendonghuaScene);
         }
@@ -445,7 +630,7 @@
     GameConfig.screenMode = "horizontal";
     GameConfig.alignV = "middle";
     GameConfig.alignH = "center";
-    GameConfig.startScene = "list.scene";
+    GameConfig.startScene = "spine.scene";
     GameConfig.sceneRoot = "";
     GameConfig.debug = false;
     GameConfig.stat = true;
